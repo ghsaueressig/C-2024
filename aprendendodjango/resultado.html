@@ -1,0 +1,25 @@
+<!-- extensão do template base-->
+{% extends "website/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}Resultado{% endblock %}
+
+{% block conteudo %}
+<div class="ms-3">
+    Operação Realizada:
+</div>
+<div class="ms-3">
+    {% if op == "raiz" %}
+        {{input2}}{{operacao}}{{input1}} = {{resultado}}
+    {% else %}
+        {{input1}} {{operacao}} {{input2}} = {{resultado}}
+    {% endif %}
+</div>
+<div>
+    <p></p>
+    <a class="btn btn-primary ms-3" href="{% url 'website:calculadora' %}">
+        Voltar  
+    </a>
+</div>
+{% endblock %}

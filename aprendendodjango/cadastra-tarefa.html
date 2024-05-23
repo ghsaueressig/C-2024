@@ -1,0 +1,57 @@
+<!-- extensão do template base-->
+{% extends "website/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- bloco que define o <title><</title> da nossa página-->
+{% block title %}Cadastro de Tarefas{% endblock %}
+
+<!-- bloco de conteúdo da nossa página-->
+{% block conteudo %}
+<div class="container"> 
+    <div class="row"> 
+        <div 
+        class="clog-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Cadastro de Tarefas</h5> 
+                  <p class="card-text">
+                      Complete o formulário abaixo para cadastrar 
+                      uma nova <code>Tarefa</code>.
+                  </p>
+                  <form method="post">
+                    {% csrf_token %}
+                    <!-- Nome-->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nome</span> 
+                      </div> 
+                      {% render_field form.nome class+="form-control" %}
+                  </div>
+                    <!-- Equipe-->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">Equipe</span> 
+                      </div> 
+                      {% render_field form.equipe class+="form-control"%}
+                  </div>
+                    <!-- STATUS -->
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">Status</span> 
+                      </div> 
+                      {% render_field form.status class+="form-control"%}
+                  </div>
+                  <div class="row" >
+                    <div class="col">
+                      <button class="btn btn-primary">Enviar</button>
+                      <a class="btn btn-primary" href="{% url 'website:lista_tarefas' %}"> Cancelar</a>
+                    </div>
+                  </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

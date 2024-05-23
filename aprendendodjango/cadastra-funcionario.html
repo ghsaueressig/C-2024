@@ -1,0 +1,71 @@
+<!-- extensão do template base-->
+{% extends "website/_layouts/base.html" %}
+
+{% load widget_tweaks %}
+
+<!-- bloco que define o <title><</title> da nossa página-->
+{% block title %}Cadastro de Funcionários{% endblock %}
+
+<!-- bloco de conteúdo da nossa página-->
+{% block conteudo %}
+<div class="container"> 
+    <div class="row"> 
+        <div 
+        class="clog-lg-12 col-md-12 col-sm-12 col-xs-12"> 
+          <div class="card">
+              <div class="card-body">
+                  <h5 class="card-title">Cadastro de Funcionários</h5> 
+                  <p class="card-text">
+                      Complete o formulário abaixo para cadastrar 
+                      um novo <code>Funcionário</code>.
+                  </p>
+                  <form method="post">
+                    {% csrf_token %}
+                    <!-- Nome-->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">Nome</span> 
+                      </div> 
+                      {% render_field form.nome class+="form-control" %}
+                  </div>
+                    <!-- Sobrenome-->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">Sobrenome</span> 
+                      </div> 
+                      {% render_field form.sobrenome class+="form-control" %}
+                  </div>
+                    <!-- CPF -->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">CPF</span> 
+                      </div> 
+                      {% render_field form.cpf class+="form-control" %}
+                  </div>
+                    <!-- Remuneração -->
+                  <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">Remuneração</span> 
+                      </div> 
+                      {% render_field form.remuneracao class+="form-control" min="0" %} 
+                  </div>
+                    <!-- Tempo de Serviço -->
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                          <span class="input-group-text">Tempo de Serviço</span> 
+                      </div> 
+                      {% render_field form.tempo_de_servico class+="form-control" teste+="teste" %}
+                    </div>
+                  <div class="row" >
+                    <div class="col">
+                      <button class="btn btn-primary">Enviar</button>
+                      <a class="btn btn-primary" href="{% url 'website:lista_funcionarios' %}"> Cancelar</a>
+                    </div>
+                  </div>
+                  </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

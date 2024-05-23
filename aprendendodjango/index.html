@@ -1,0 +1,97 @@
+<!-- extensão do template base-->
+{% extends "website/_layouts/base.html" %}
+
+<!-- bloco que define o <title><</title> da nossa página-->
+{% block title %}Página Inicial{% endblock %}
+
+<!-- bloco de conteúdo da nossa página-->
+{% block conteudo %}
+<div class="container"> 
+    <div class="row"> 
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cadastrar Funcionário</h5> 
+                    <p class="card-text">
+                        Cadastre aqui um novo <code>Funcionário</code>
+                    </p>
+                    <a href="{% url 'website:create_funcionario' %}"
+                        class="btn btn-primary">
+                        Novo Funcionário
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de Funcionários</h5> 
+                    <p class="card-text">
+                        Veja aqui a lista de <code>Funcionários</code> cadastrados.
+                    </p>
+                    <a href="{% url 'website:lista_funcionarios' %}"
+                        class="btn btn-primary">
+                        Vá para Lista
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cadastrar Equipe</h5> 
+                    <p class="card-text">
+                        Cadastre aqui uma nova <code>Equipe</code>
+                    </p>
+                    <a href="{% url 'website:create_equipe' %}"
+                        class="btn btn-primary">
+                        Nova Equipe
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de Equipes</h5> 
+                    <p class="card-text">
+                        Veja aqui a lista de <code>Equipes</code> cadastradas.
+                    </p>
+                    <a href="{% url 'website:lista_equipes' %}"
+                        class="btn btn-primary">
+                        Vá para Lista
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Cadastrar Tarefa</h5> 
+                    <p class="card-text">
+                        Cadastre aqui uma nova <code>Tarefa</code>
+                    </p>
+                    <a href="{% url 'website:create_tarefa' %}"
+                        class="btn btn-primary">
+                        Nova Tarefa
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div class="clog-lg-6 col-md-6 col-sm-6 col-xs-12"> 
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Lista de Tarefas</h5> 
+                    <p class="card-text">
+                        Veja aqui a lista de <code>Tarefas</code> cadastradas.
+                    </p>
+                    <a href="{% url 'website:lista_tarefas' %}"
+                        class="btn btn-primary">
+                        Vá para Lista
+                    </a>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

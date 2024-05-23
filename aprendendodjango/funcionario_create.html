@@ -1,0 +1,12 @@
+<form method="POST">
+
+    {%csrf_token%}
+    {{form.as_p}}
+
+    <button type="submit">
+        Salvar
+    </button>
+
+    <p></p>
+    <a href="{% url 'website:index' %}"> Cancelar </a> 
+</form>

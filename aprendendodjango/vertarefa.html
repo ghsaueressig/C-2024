@@ -1,0 +1,59 @@
+<!-- extensão do template base-->
+{% extends "website/_layouts/base.html" %}
+{% load mytags %}
+{% load widget_tweaks %}
+
+{% block title %}Detalhes da tarefa <b>{{ tarefa.nome }}</b>{% endblock %}
+{% block conteudo %}
+
+<p></p>
+<div class="text-center"> 
+    <a type="button" class="btn btn-primary" href="{% url 'website:lista_tarefas' %}"> Voltar para Lista </a>
+</div>
+<p></p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
+            <div class="card">
+                <div class="card-body">
+                <h5 class="card-title">Detalhes da Tarefa</h5>       
+                <p class="card-text">
+                    Você está visualizando a tarefa "<b>{{ tarefa.nome }}</b>".
+                </p>
+                <table class="table">
+                    <thead class="thead-light">
+                        <tr>
+                            <th scope="col">ID</th>
+                            <th scope="col">Nome</th>
+                            <th scope="col">Equipe</th>
+                            <th scope="col">Status</th>
+                            <th scope="col">Descrição</th>
+                            <th scope="col">Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>{{ tarefa.id }}</a></td>
+                            <td>{{ tarefa.nome }} </td>
+                            <td>
+                                <a href="{% url 'website:detail_equipe' tarefa.equipe.pk %}">{{ tarefa.equipe }}</a>
+                            </td>
+                            <td>{{ tarefa.get_status_display }} </td>
+                            <td>{{ tarefa.descricao }}</td>
+                            <td>
+                            <a href="{% url 'website:update_tarefa' tarefa.pk %}" class="btn btn-info">
+                                Atualizar
+                            </a>
+                            <a href="{% url 'website:delete_tarefa' tarefa.pk %}" class="btn btn-outline-danger">
+                                Deletar
+                            </a>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

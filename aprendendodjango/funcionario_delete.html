@@ -1,0 +1,9 @@
+Você tem certeza de que quer deletar <b>{{ funcionario.nome }}? 
+<p>
+    <form method="POST">
+        {%csrf_token%}
+        <button type="submit">Sim</button>
+
+        <a type="button" href="{% url 'website:lista_funcionarios'%}">Não</a>
+    </form> 
+</p>
