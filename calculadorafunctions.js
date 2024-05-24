@@ -31,6 +31,11 @@ function addOperation() {
             if (!isNaN(indice) && indice !== 2) {
                 resultado = Math.pow(input1, 1 / indice);
                 operationString = indice + '√' + input1 + ' = ' + resultado;
+            } if (!isNaN(indice) && indice === 2 && input1 < 0) {
+            var absInput1 = -input1; // Valor absoluto do primeiro input
+            var raiz = Math.sqrt(absInput1); // Raiz quadrada do valor absoluto
+            resultado = raiz + 'i'; // Adiciona o símbolo 'i' ao resultado
+            operationString = '√(-' + absInput1 + ') = ' + resultado;
             } else {
                 resultado = Math.sqrt(input1);
                 operationString = '√' + input1 + ' = ' + resultado;
