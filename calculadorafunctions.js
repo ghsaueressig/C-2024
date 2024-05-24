@@ -64,6 +64,24 @@ function addOperation() {
     document.getElementById('input2').value = "";
     }
 
+function addConstant(constant) {
+    var inputs = document.querySelectorAll('.number.form-control');
+    var lastInput = inputs[inputs.length - 1];
+
+    // Verifica qual constante foi selecionada e insere no último campo de input
+    switch (constant) {
+        case 'e':
+            lastInput.value += Math.E; // Adiciona a constante e (exponencial)
+            break;
+        case 'pi':
+            lastInput.value += Math.PI; // Adiciona a constante π (pi)
+            break;
+        default:
+            // Caso seja selecionada uma constante não reconhecida
+            alert("Constante não reconhecida.");
+    }
+}
+
 function limparInputs(inputs) {
     for (var i = 1; i < inputs.length; i++) {
         inputs[i].value = "";
